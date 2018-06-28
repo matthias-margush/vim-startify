@@ -468,7 +468,9 @@ function! s:show_lists(lists) abort
         continue
       endtry
       if empty(entries)
-        unlet! s:last_message
+        if exists('s:last_message')
+          unlet! s:last_message
+        endif
         continue
       endif
 
